@@ -1,8 +1,16 @@
+document.querySelector("h1").classList.add("h1-animation");
+document.querySelector("div").classList.add("div-animation");
+
+setTimeout(() => {
+    document.querySelector("h1").classList.remove("h1-animation");
+    document.querySelector("div").classList.remove("div-animation");
+}, 2000);
+
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
     document.querySelectorAll('.drum')[i].addEventListener("click", function handleClick() {
-        this.style.color = "white";
         var buttonInnerHtml = this.innerHTML;
         makeSound(buttonInnerHtml);
+        buttonAnimation(buttonInnerHtml);
     });
 }
 
@@ -38,4 +46,20 @@ function makeSound(key) {
             break;
         default:
     }
+}
+
+document.addEventListener("keydown",function(event)
+{//play sound also with keyboard press
+    makeSound(event.key);
+    buttonAnimation(event.key);
+})
+
+function buttonAnimation(currentKey)
+{//animation for the pressed button 
+    var activeButton=document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+
+    setTimeout(() => {
+        activeButton.classList.remove("pressed");
+    }, 300);
 }

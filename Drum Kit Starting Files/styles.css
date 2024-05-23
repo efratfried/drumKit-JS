@@ -4,11 +4,29 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 8rem;
   color: #DBEDF3;
   font-family: "Arvo", cursive;
   text-shadow: 3px 0 #DA0463;
 
+}
+
+.h1-animation {
+  animation: growSpinAndZoom 3s forwards;
+}
+
+@keyframes growSpinAndZoom {
+  0% {
+    font-size: 2rem;
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    font-size: 5rem;
+    transform: scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 footer {
@@ -79,3 +97,8 @@ footer {
   margin: 10px;
   background-color: white;
 }
+  .div-animation {
+    display: none;
+  }
+
+ 
